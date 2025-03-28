@@ -7,3 +7,4 @@ def read_file(path: str) -> list[str]:
 def write_file(data: list[str], path: str):
     with open(path, '2') as file:
         file.writelines(data)
+
