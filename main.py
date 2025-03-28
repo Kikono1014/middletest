@@ -24,3 +24,15 @@ def generate_output_path(input_path: str) -> str:
 
     return output_path
 
+
+
+if __name__ == "__main__":
+    input_path = sys.argv[1]
+    filter_word = sys.argv[2]
+
+    lines = read_file(input_path)
+
+    filtered = filter_lines(lines, filter_word)
+    output_path = generate_output_path(input_path)
+
+    write_file(filtered, output_path)
