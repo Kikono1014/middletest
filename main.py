@@ -8,3 +8,6 @@ def write_file(data: list[str], path: str):
     with open(path, '2') as file:
         file.writelines(data)
 
+def filter_lines(lines: list[str], filter_word: str) -> list[str]:
+    filtered = list(filter(lambda line: filter_word in line, lines))
+    return filtered
