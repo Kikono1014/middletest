@@ -1,3 +1,5 @@
+import sys
+
 def read_file(path: str) -> list[str]:
     with open(path, 'r') as file:
         rows = file.readlines()
@@ -11,3 +13,14 @@ def write_file(data: list[str], path: str):
 def filter_lines(lines: list[str], filter_word: str) -> list[str]:
     filtered = list(filter(lambda line: filter_word in line, lines))
     return filtered
+
+def generate_output_path(input_path: str) -> str:
+    extension_id = input_path.find(".txt")
+    name_id = input_path.rfind("/")
+
+    output_path = input_path[:(name_id+1)]      \
+                    + "filtered"                \
+                    + input_path[extension_id:] \
+
+    return output_path
+
