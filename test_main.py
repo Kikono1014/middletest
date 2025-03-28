@@ -1,5 +1,5 @@
 import pytest
-import main
+
 
 
 def test_read_file(tmp_path):
