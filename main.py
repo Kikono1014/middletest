@@ -1,0 +1,5 @@
+def read_file(path: str) -> list[str]:
+    with open(path, 'r') as file:
+        rows = file.readlines()
+
+    return rows
