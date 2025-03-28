@@ -1,6 +1,6 @@
 import pytest
 import main
-
+import subprocess
 
 @pytest.fixture
 def sample_file(tmp_path):
@@ -45,3 +45,13 @@ def test_filter_lines(lines, filter_word, expected):
 def test_generate_output_path(input_path, expected):
     output_path = main.generate_output_path(input_path)
     assert output_path == expected
+
+
+def test_pep8_compliance():
+    result = subprocess.run(
+        ["flake8", "--exclude=.venv,__pycache__,venv", "main.py"],
+        capture_output=True,
+        text=True
+    )
+    
+    assert result.returncode == 0, f"PEP8 style errors:\n{result.stdout}"
