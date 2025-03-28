@@ -36,3 +36,12 @@ def test_write_file(temp_output_file, data):
 def test_filter_lines(lines, filter_word, expected):
     result = main.filter_lines(lines, filter_word)
     assert result == expected
+
+@pytest.mark.parametrize("input_path, expected", [
+    ("/home/user/input.txt", "/home/user/filtered.txt"),
+    ("input.txt", "filtered.txt"),
+    ("./dir/test.txt", "./dir/filtered.txt")
+])
+def test_generate_output_path(input_path, expected):
+    output_path = main.generate_output_path(input_path)
+    assert output_path == expected
