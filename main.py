@@ -7,7 +7,7 @@ def read_file(path: str) -> list[str]:
     return rows
 
 def write_file(data: list[str], path: str):
-    with open(path, '2') as file:
+    with open(path, 'w') as file:
         file.writelines(data)
 
 def filter_lines(lines: list[str], filter_word: str) -> list[str]:
